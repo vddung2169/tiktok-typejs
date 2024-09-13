@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 
 import { publicRoutes } from './routes'
-import { DefaultLayout } from './Components/Layout/DefaultLayout'
+import { DefaultLayout } from './components/Layout/DefaultLayout'
 
 
 function App() {

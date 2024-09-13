@@ -1,5 +1,5 @@
 import { Fragment } from "react/jsx-runtime";
-import { HeaderOnly } from "../Components/Layout/HeaderOnly";
+import { HeaderOnly } from "../components/Layout/HeaderOnly";
 import { Following } from "../pages/Following";
 import { Home } from "../pages/Home";
 import { Search } from "../pages/Search";
