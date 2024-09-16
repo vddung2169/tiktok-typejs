@@ -2,11 +2,12 @@ import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
 import images from '../../../../assets';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSearch, faSign, faSignIn, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import { useEffect, useState } from 'react';
-import { Wrapper as PopperWrapper } from '../../../Popper'
+import { Wrapper as PopperWrapper } from '../../../Popper';
 import { AccountItem } from '../../../AccountItem';
+import { Button } from '../../../Button';
 
 const cx = classNames.bind(styles);
 
@@ -24,27 +25,25 @@ const Header = () => {
             <div className={cx('inner')}>
                 {/* Logo */}
                 <div className={cx('logo')}>
-                    <img src={images.logo} alt='tiktok'></img>
+                    <img src={images.logo} alt="tiktok"></img>
                 </div>
                 <Tippy
                     interactive={true}
                     visible={searchResult.length > 0}
-                    render={attrs => (
-                        <div className={cx("search-result")} tabIndex={-1} {...attrs}>
+                    render={(attrs) => (
+                        <div className={cx('search-result')} tabIndex={-1} {...attrs}>
                             <PopperWrapper>
-                                <h4 className={cx('search-title')}>
-                                    Accounts
-                                </h4>
+                                <h4 className={cx('search-title')}>Accounts</h4>
                                 <AccountItem />
                                 <AccountItem />
                                 <AccountItem />
                                 <AccountItem />
                             </PopperWrapper>
                         </div>
-                    )}  >
-
+                    )}
+                >
                     <div className={cx('search')}>
-                        <input type='text' placeholder='Search accounts and videos' spellCheck={false}></input>
+                        <input type="text" placeholder="Search accounts and videos" spellCheck={false}></input>
 
                         <button className={cx('clear-btn')}>
                             {/* icon close */}
@@ -54,7 +53,6 @@ const Header = () => {
                         {/* Loading */}
                         <FontAwesomeIcon icon={faSpinner} className={cx('loading')} />
 
-
                         <button className={cx('search-btn')}>
                             <FontAwesomeIcon icon={faSearch} />
                         </button>
@@ -62,11 +60,12 @@ const Header = () => {
                 </Tippy>
 
                 <div className={cx('actions')}>
-
+                    <Button text>Upload</Button>
+                    <Button primary>Log in</Button>
                 </div>
             </div>
-        </header >
-    )
-}
+        </header>
+    );
+};
 
-export default Header; 
+export default Header;
