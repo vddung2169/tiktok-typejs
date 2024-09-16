@@ -1,15 +1,15 @@
+import classNames from 'classnames/bind';
+import styles from './Popper.module.scss';
 
-import classNames from 'classnames/bind'
-import styles from './Popper.module.scss'
+const cx = classNames.bind(styles);
 
-const cx = classNames.bind(styles)
-
-const Wrapper = ({ children }: { children: any }) => {
-    return (
-        <div className={cx('wrapper')}>
-            {children}
-        </div>
-    )
+interface WrapperProps {
+    children: any;
+    className?: any;
 }
 
-export default Wrapper 
+const Wrapper: React.FC<WrapperProps> = ({ children, className }) => {
+    return <div className={cx('wrapper', className)}>{children}</div>;
+};
+
+export default Wrapper;
