@@ -7,11 +7,12 @@ const cx = classNames.bind(styles);
 
 interface MenuItemProps {
     data: any;
+    onClick?: () => void;
 }
 
-export const MenuItem: React.FC<MenuItemProps> = ({ data }) => {
+export const MenuItem: React.FC<MenuItemProps> = ({ data, onClick }) => {
     return (
-        <Button className={cx('menu-item')} leftIcon={data.icon} to={data.to}>
+        <Button className={cx('menu-item')} leftIcon={data.icon} to={data.to} onClick={onClick}>
             {data.title}
         </Button>
     );
