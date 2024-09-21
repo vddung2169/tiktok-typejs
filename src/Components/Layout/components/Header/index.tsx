@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Header.module.scss';
-import images from '../../../../assets';
+import images from '../../../../assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
@@ -11,7 +11,6 @@ import {
     faEllipsisVertical,
     faGears,
     faKeyboard,
-    faMessage,
     faSearch,
     faSignOut,
     faSpinner,
@@ -25,6 +24,8 @@ import { Wrapper as PopperWrapper } from '../../../Popper';
 import { AccountItem } from '../../../AccountItem';
 import { Button } from '../../../Button';
 import { Menu } from '../../../Popper/Menu';
+import { MessageIcon } from '../../../Icons';
+import Image from '../../../Images';
 
 const cx = classNames.bind(styles);
 
@@ -154,7 +155,7 @@ const Header = () => {
                                 </button>
                             </Tippy>
                             <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
+                                <MessageIcon width="2.6rem" height="2.6rem" />
                             </button>
                         </>
                     ) : (
@@ -172,11 +173,12 @@ const Header = () => {
 
                     <Menu items={currentUser ? USER_MENU : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
-                                className={cx('user-avatar')}
+                            <Image
                                 alt="VuDucDung"
                                 src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/5d908b2d02c1562867e9287880abffce.jpeg?lk3s=a5d48078&nonce=1862&refresh_token=c2482829be1f3d93ae7c43916bc62529&x-expires=1726927200&x-signature=sjrjcuMbq0dazxRIpSrS4Y58PP8%3D&shp=a5d48078&shcp=81f88b70"
-                            ></img>
+                                className={cx('user-avatar')}
+                                fallBack={'https://fullstack.edu.vn/assets/f8-icon-lV2rGpF0.png'}
+                            ></Image>
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
