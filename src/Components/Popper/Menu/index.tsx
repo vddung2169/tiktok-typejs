@@ -29,7 +29,6 @@ export const Menu: React.FC<MenuProps> = ({ children, items, onChange = () => {}
     };
 
     const renderItems = () => {
-        console.log(current);
         return current.data?.map((item, index) => {
             const isParent = !!item.children;
             return <MenuItem key={index} data={item} onClick={() => nextItem(isParent, item)} />;
