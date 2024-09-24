@@ -10,7 +10,7 @@ const Image = (
         className,
         fallBack: customeFallback = images.noImage,
         ...props
-    }: { src: string; alt: string; fallBack: string; className: any },
+    }: { src: string; alt: string; fallBack?: string; className: any },
     ref: any,
 ) => {
     const [fallBack, setFallBack] = useState('');
