@@ -11,6 +11,8 @@
     --default-layout-header-height: 60px;
     --default-layout-container-width: 1150px;
     --default-layout-container-padding: 24px;
+
+    --font-famyly: TikTokFont, sans-serif;
 }
 
 * {
@@ -25,7 +27,7 @@ html {
 
 //Font embedding
 @font-face {
-    font-family: TikTokFont;
+    font-family: var(--font-famyly);
     src: url('/src/assets/fonts/TikTokFont-Regular.woff2');
     font-weight: 400;
 }
@@ -47,6 +49,32 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+}
+
+// Scrollbar CSS
+html ::-webkit-scrollbar {
+    border-radius: 0px;
+    width: 8px;
+}
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+html ::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+html ::-webkit-scrollbar-track {
+    border-radius: 0px;
+    background-color: rgba(0, 0, 0, 0);
+}
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
 }
 
 button,

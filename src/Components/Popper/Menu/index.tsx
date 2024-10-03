@@ -11,10 +11,17 @@ const cx = classNames.bind(styles);
 interface MenuProps {
     items?: any[];
     children: any;
+    hideOnClick?: boolean;
     onChange?: (item: any) => void;
 }
 
-export const Menu: React.FC<MenuProps> = ({ children, items, onChange = () => {} }) => {
+export const Menu: React.FC<MenuProps> = ({
+    children,
+    items,
+    hideOnClick = false,
+    onChange = () => {},
+    ...passProps
+}) => {
     const [history, setHistory] = useState([{ data: items }]);
 
     const current = history[history.length - 1];
@@ -37,6 +44,8 @@ export const Menu: React.FC<MenuProps> = ({ children, items, onChange = () => {}
 
     return (
         <Tippy
+            {...passProps}
+            hideOnClick={hideOnClick}
             interactive
             delay={[0, 300]}
             offset={[12, 10]}
@@ -52,7 +61,7 @@ export const Menu: React.FC<MenuProps> = ({ children, items, onChange = () => {}
                                 }}
                             />
                         )}
-                        {renderItems()}
+                        <div className={cx('menu-body')}> {renderItems()}</div>
                     </PopperWrapper>
                 </div>
             )}

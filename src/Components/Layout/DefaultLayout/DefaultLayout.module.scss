@@ -10,6 +10,7 @@
     min-height: 1000px;
     display: flex;
     padding: var(--default-layout-container-padding);
+    margin-top: var(--default-layout-header-height);
 }
 
 .content {
